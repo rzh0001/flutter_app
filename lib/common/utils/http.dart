@@ -3,8 +3,11 @@ import 'dart:async';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
-import 'package:flutter_ducafecat_news_getx/global.dart';
+import 'package:flutter_app/common/entities/response_entity.dart';
+import 'package:flutter_app/common/values/values.dart';
+import 'package:flutter_app/common/widgets/toast.dart';
+import 'package:flutter_app/generated/json/base/json_convert_content.dart';
+import 'package:flutter_app/global.dart';
 
 /*
   * http 操作类
@@ -26,7 +29,7 @@ class HttpUtil {
     // BaseOptions、Options、RequestOptions 都可以配置参数，优先级别依次递增，且可以根据优先级别覆盖参数
     BaseOptions options = new BaseOptions(
       // 请求基地址,可以包含子路径
-      baseUrl: SERVER_API_URL,
+      baseUrl: Url.baseUrl,
 
       // baseUrl: storage.read(key: STORAGE_KEY_APIURL) ?? SERVICE_API_BASEURL,
       //连接服务器超时时间，单位是毫秒.
@@ -64,6 +67,13 @@ class HttpUtil {
     dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) {
         // Do something before request is sent
+
+        /// debug info
+        print("dio onRequest...");
+        print("url:${options.baseUrl}");
+        print("path:${options.path}");
+        print("params:${options.queryParameters.toString()}");
+
         return handler.next(options); //continue
         // 如果你想完成请求并返回一些自定义数据，你可以resolve一个Response对象 `handler.resolve(response)`。
         // 这样请求将会被终止，上层then会被调用，then中返回的数据将是你的自定义response.
@@ -72,12 +82,27 @@ class HttpUtil {
         // 这样请求将被中止并触发异常，上层catchError会被调用。
       },
       onResponse: (response, handler) {
+        print("dio onResponse...");
+        print("response: $response");
         // Do something with response data
-        return handler.next(response); // continue
+
+        ResponseEntity res = JsonConvert.fromJsonAsT(response.data);
+        if (!res.success) {
+          print("response: ${res.message}");
+          toastInfo(msg: res.message);
+          return handler.reject(DioError(
+            requestOptions: response.requestOptions,
+            type: DioErrorType.response,
+            error: res.message,
+          ));
+        }
+
+        return handler.next(res.result); // continue
         // 如果你想终止请求并触发一个错误,你可以 reject 一个`DioError`对象,如`handler.reject(error)`，
         // 这样请求将被中止并触发异常，上层catchError会被调用。
       },
       onError: (DioError e, handler) {
+        print("dio onError...");
         // Do something with response error
         ErrorEntity eInfo = createErrorEntity(e);
         switch (eInfo.code) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
+import 'package:flutter_app/common/values/values.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +11,7 @@ class WelcomePage extends GetView<WelcomeController> {
     return Container(
       margin: EdgeInsets.only(top: (60 + 44.0).h), // 顶部系统栏 44px
       child: Text(
-        "Features",
+        AppConfig.appName,
         textAlign: TextAlign.center,
         style: TextStyle(
           color: AppColors.primaryText,
@@ -93,8 +93,7 @@ class WelcomePage extends GetView<WelcomeController> {
           )),
           foregroundColor: MaterialStateProperty.resolveWith(
             (states) {
-              if (states.contains(MaterialState.focused) &&
-                  !states.contains(MaterialState.pressed)) {
+              if (states.contains(MaterialState.focused) && !states.contains(MaterialState.pressed)) {
                 return Colors.blue;
               } else if (states.contains(MaterialState.pressed)) {
                 return Colors.deepPurple;

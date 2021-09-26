@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ducafecat_news_getx/common/utils/utils.dart';
-import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
+import 'package:flutter_app/common/utils/utils.dart';
+import 'package:flutter_app/common/values/values.dart';
 
 /// 检查是否有 token
 Future<bool> isAuthenticated() async {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
+import 'package:flutter_app/common/values/values.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -46,8 +46,7 @@ class NewsChannelsWidget extends GetView<MainController> {
                                       boxShadow: [
                                         Shadows.primaryShadow,
                                       ],
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(32)),
+                                      borderRadius: BorderRadius.all(Radius.circular(32)),
                                     ),
                                     child: Container(),
                                   ),

@@ -1,6 +1,6 @@
-import 'package:flutter_ducafecat_news_getx/common/entities/entities.dart';
-import 'package:flutter_ducafecat_news_getx/common/utils/utils.dart';
-import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
+import 'package:flutter_app/common/entities/entities.dart';
+import 'package:flutter_app/common/utils/utils.dart';
+import 'package:flutter_app/common/values/values.dart';
 
 /// 新闻
 class NewsAPI {
@@ -44,10 +44,7 @@ class NewsAPI {
       '/categories',
       cacheDisk: cacheDisk,
     );
-    return response
-        .map<CategoryResponseEntity>(
-            (item) => CategoryResponseEntity.fromJson(item))
-        .toList();
+    return response.map<CategoryResponseEntity>((item) => CategoryResponseEntity.fromJson(item)).toList();
   }
 
   /// 频道
@@ -58,10 +55,7 @@ class NewsAPI {
       '/channels',
       cacheDisk: cacheDisk,
     );
-    return response
-        .map<ChannelResponseEntity>(
-            (item) => ChannelResponseEntity.fromJson(item))
-        .toList();
+    return response.map<ChannelResponseEntity>((item) => ChannelResponseEntity.fromJson(item)).toList();
   }
 
   /// 标签列表
@@ -74,8 +68,6 @@ class NewsAPI {
       queryParameters: params?.toJson(),
       cacheDisk: cacheDisk,
     );
-    return response
-        .map<TagResponseEntity>((item) => TagResponseEntity.fromJson(item))
-        .toList();
+    return response.map<TagResponseEntity>((item) => TagResponseEntity.fromJson(item)).toList();
   }
 }

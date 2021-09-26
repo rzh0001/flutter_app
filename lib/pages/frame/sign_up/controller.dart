@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ducafecat_news_getx/common/apis/apis.dart';
-import 'package:flutter_ducafecat_news_getx/common/entities/entities.dart';
-import 'package:flutter_ducafecat_news_getx/common/utils/utils.dart';
-import 'package:flutter_ducafecat_news_getx/common/widgets/widgets.dart';
+import 'package:flutter_app/common/apis/apis.dart';
+import 'package:flutter_app/common/entities/entities.dart';
+import 'package:flutter_app/common/routes/app_pages.dart';
+import 'package:flutter_app/common/utils/utils.dart';
+import 'package:flutter_app/common/widgets/widgets.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -15,7 +16,7 @@ class SignUpController extends GetxController {
 
   /// 业务变量
 
-  final TextEditingController fullnameController = TextEditingController();
+  final TextEditingController inviteCodeController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
 
@@ -32,7 +33,7 @@ class SignUpController extends GetxController {
   }
 
   // 忘记密码
-  handleFogotPassword() {
+  handleForgotPassword() {
     toastInfo(msg: '忘记密码');
   }
 
@@ -54,11 +55,16 @@ class SignUpController extends GetxController {
     UserRegisterRequestEntity params = UserRegisterRequestEntity(
       email: emailController.value.text,
       password: duSHA256(passController.value.text),
+      inviteCode: inviteCodeController.value.text,
     );
 
-    await UserAPI.register(
+    var bool = await UserAPI.register(
       params: params,
     );
+
+    if (bool) {
+      Get.toNamed(AppRoutes.Application);
+    }
 
     Get.back();
   }
@@ -73,7 +79,7 @@ class SignUpController extends GetxController {
 
   @override
   void dispose() {
-    fullnameController.dispose();
+    inviteCodeController.dispose();
     emailController.dispose();
     passController.dispose();
     super.dispose();

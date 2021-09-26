@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ducafecat_news_getx/common/apis/apis.dart';
-import 'package:flutter_ducafecat_news_getx/common/entities/entities.dart';
-import 'package:flutter_ducafecat_news_getx/common/routes/app_pages.dart';
-import 'package:flutter_ducafecat_news_getx/common/utils/utils.dart';
-import 'package:flutter_ducafecat_news_getx/common/widgets/widgets.dart';
-import 'package:flutter_ducafecat_news_getx/global.dart';
+import 'package:flutter_app/common/apis/apis.dart';
+import 'package:flutter_app/common/entities/entities.dart';
+import 'package:flutter_app/common/routes/app_pages.dart';
+import 'package:flutter_app/common/utils/utils.dart';
+import 'package:flutter_app/common/widgets/widgets.dart';
+import 'package:flutter_app/global.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -28,7 +28,7 @@ class SignInController extends GetxController {
   }
 
   // 忘记密码
-  handleFogotPassword() {
+  handleForgotPassword() {
     toastInfo(msg: '忘记密码');
   }
 

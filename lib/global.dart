@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ducafecat_news_getx/common/entities/entities.dart';
-import 'package:flutter_ducafecat_news_getx/common/utils/utils.dart';
-import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
+import 'package:flutter_app/common/entities/entities.dart';
+import 'package:flutter_app/common/utils/utils.dart';
+import 'package:flutter_app/common/values/values.dart';
 import 'package:package_info/package_info.dart';
 
 /// 全局静态数据
@@ -87,7 +87,6 @@ class Global {
   // 持久化 用户信息
   static Future<bool> saveProfile(UserLoginResponseEntity userResponse) {
     profile = userResponse;
-    return StorageUtil()
-        .setJSON(STORAGE_USER_PROFILE_KEY, userResponse.toJson());
+    return StorageUtil().setJSON(STORAGE_USER_PROFILE_KEY, userResponse.toJson());
   }
 }

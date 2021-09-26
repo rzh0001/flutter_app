@@ -1,4 +1,4 @@
-name: flutter_ducafecat_news_getx
+name: flutter_app
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -83,6 +83,8 @@ dependencies:
   # 通过 scheme 打开APP 获取 参数
   uni_links: ^0.5.1
 
+  flutter_svg: ^0.22.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -125,6 +127,8 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - assets/images/
+    - assets/icons/
+
 
   fonts:
     - family: Avenir

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
+import 'package:flutter_app/common/values/values.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -26,9 +26,7 @@ class NewsCategoriesWidget extends GetView<MainController> {
                       child: Text(
                         item.title,
                         style: TextStyle(
-                          color: controller.state.selCategoryCode == item.code
-                              ? AppColors.secondaryElementText
-                              : AppColors.primaryText,
+                          color: controller.state.selCategoryCode == item.code ? AppColors.secondaryElementText : AppColors.primaryText,
                           fontSize: 18.sp,
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w600,

@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_ducafecat_news_getx/common/routes/app_pages.dart';
-import 'package:flutter_ducafecat_news_getx/common/utils/utils.dart';
-import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
+import 'package:flutter_app/common/routes/app_pages.dart';
+import 'package:flutter_app/common/utils/utils.dart';
+import 'package:flutter_app/common/values/values.dart';
 import 'package:get/get.dart';
 import 'package:uni_links/uni_links.dart';
 
@@ -33,8 +33,7 @@ class ApplicationController extends GetxController {
 
   // tab栏动画
   void handleNavBarTap(int index) {
-    pageController.animateToPage(index,
-        duration: const Duration(milliseconds: 200), curve: Curves.ease);
+    pageController.animateToPage(index, duration: const Duration(milliseconds: 200), curve: Curves.ease);
   }
 
   // tab栏页码切换

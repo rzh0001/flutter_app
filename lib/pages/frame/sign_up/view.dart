@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
-import 'package:flutter_ducafecat_news_getx/common/widgets/widgets.dart';
+import 'package:flutter_app/common/values/values.dart';
+import 'package:flutter_app/common/widgets/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -33,18 +33,12 @@ class SignUpPage extends GetView<SignUpController> {
       margin: EdgeInsets.only(top: 49.h),
       child: Column(
         children: [
-          // fullName input
-          inputTextEdit(
-            controller: controller.fullnameController,
-            keyboardType: TextInputType.text,
-            hintText: "Full name",
-            marginTop: 0,
-          ),
           // email input
           inputTextEdit(
             controller: controller.emailController,
             keyboardType: TextInputType.emailAddress,
             hintText: "Email",
+            marginTop: 0,
           ),
           // password input
           inputTextEdit(
@@ -53,11 +47,17 @@ class SignUpPage extends GetView<SignUpController> {
             hintText: "Password",
             isPassword: true,
           ),
+          // fullName input
+          inputTextEdit(
+            controller: controller.inviteCodeController,
+            keyboardType: TextInputType.text,
+            hintText: "Invite Code",
+          ),
 
           // 创建
           Container(
             height: 44.h,
-            margin: EdgeInsets.only(top: 15.h),
+            margin: EdgeInsets.only(top: 18.h),
             child: btnFlatButtonWidget(
               onPressed: controller.handleSignUp,
               width: 295.w,
@@ -67,13 +67,13 @@ class SignUpPage extends GetView<SignUpController> {
           ),
           // Spacer(),
 
-          // Fogot password
+          // Forgot password
           Padding(
             padding: EdgeInsets.only(top: 8.0),
             child: TextButton(
-              onPressed: controller.handleFogotPassword,
+              onPressed: controller.handleForgotPassword,
               child: Text(
-                "Fogot password?",
+                "Forgot password?",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: AppColors.secondaryElementText,

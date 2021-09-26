@@ -1,9 +1,9 @@
-import 'package:flutter_ducafecat_news_getx/common/middlewares/middlewares.dart';
-import 'package:flutter_ducafecat_news_getx/pages/application/index.dart';
-import 'package:flutter_ducafecat_news_getx/pages/category/index.dart';
-import 'package:flutter_ducafecat_news_getx/pages/frame/sign_in/index.dart';
-import 'package:flutter_ducafecat_news_getx/pages/frame/sign_up/index.dart';
-import 'package:flutter_ducafecat_news_getx/pages/frame/welcome/index.dart';
+import 'package:flutter_app/common/middlewares/middlewares.dart';
+import 'package:flutter_app/pages/application/index.dart';
+import 'package:flutter_app/pages/category/index.dart';
+import 'package:flutter_app/pages/frame/sign_in/index.dart';
+import 'package:flutter_app/pages/frame/sign_up/index.dart';
+import 'package:flutter_app/pages/frame/welcome/index.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';

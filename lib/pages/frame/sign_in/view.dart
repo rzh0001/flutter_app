@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
-import 'package:flutter_ducafecat_news_getx/common/widgets/widgets.dart';
+import 'package:flutter_app/common/values/values.dart';
+import 'package:flutter_app/common/widgets/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -19,61 +19,33 @@ class SignInPage extends GetView<SignInController> {
             height: 76.w,
             width: 76.w,
             margin: EdgeInsets.symmetric(horizontal: 15.w),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Positioned(
-                  left: 0,
-                  top: 0,
-                  right: 0,
-                  child: Container(
-                    height: 76.w,
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryBackground,
-                      boxShadow: [
-                        Shadows.primaryShadow,
-                      ],
-                      borderRadius: BorderRadius.all(
-                          Radius.circular((76 * 0.5).w)), // 父容器的50%
-                    ),
-                    child: Container(),
-                  ),
-                ),
-                Positioned(
-                  top: 13.w,
-                  child: Image.asset(
-                    "assets/images/logo.png",
-                    fit: BoxFit.none,
-                  ),
-                ),
-              ],
-            ),
+            child: Image.asset("assets/images/eth_color.png"),
           ),
           Container(
-            margin: EdgeInsets.only(top: 15.h),
+            margin: EdgeInsets.only(top: 20.h),
             child: Text(
-              "SECTOR",
+              AppConfig.appName,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.primaryText,
                 fontFamily: "Montserrat",
                 fontWeight: FontWeight.w600,
                 fontSize: 24.sp,
-                height: 1,
+                height: 1.2,
               ),
             ),
           ),
-          Text(
-            "news",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: AppColors.primaryText,
-              fontFamily: "Avenir",
-              fontWeight: FontWeight.w400,
-              fontSize: 16.sp,
-              height: 1,
-            ),
-          ),
+          // Text(
+          //   "news",
+          //   textAlign: TextAlign.center,
+          //   style: TextStyle(
+          //     color: AppColors.primaryText,
+          //     fontFamily: "Avenir",
+          //     fontWeight: FontWeight.w400,
+          //     fontSize: 16.sp,
+          //     height: 1,
+          //   ),
+          // ),
         ],
       ),
     );
@@ -131,7 +103,7 @@ class SignInPage extends GetView<SignInController> {
           Padding(
             padding: EdgeInsets.only(top: 8.0),
             child: TextButton(
-              onPressed: controller.handleFogotPassword,
+              onPressed: controller.handleForgotPassword,
               child: Text(
                 "Fogot password?",
                 textAlign: TextAlign.center,

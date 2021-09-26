@@ -1,4 +1,4 @@
-# flutter_ducafecat_news_getx
+# flutter_app
 
 新闻客户端 Getx 版本 - 项目模板
 

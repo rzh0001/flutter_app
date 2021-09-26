@@ -2,14 +2,15 @@
 class UserRegisterRequestEntity {
   String email;
   String password;
+  String inviteCode;
 
   UserRegisterRequestEntity({
     required this.email,
     required this.password,
+    this.inviteCode = "",
   });
 
-  factory UserRegisterRequestEntity.fromJson(Map<String, dynamic> json) =>
-      UserRegisterRequestEntity(
+  factory UserRegisterRequestEntity.fromJson(Map<String, dynamic> json) => UserRegisterRequestEntity(
         email: json["email"],
         password: json["password"],
       );
@@ -17,6 +18,7 @@ class UserRegisterRequestEntity {
   Map<String, dynamic> toJson() => {
         "email": email,
         "password": password,
+        "inviteCode": inviteCode,
       };
 }
 
@@ -30,8 +32,7 @@ class UserLoginRequestEntity {
     required this.password,
   });
 
-  factory UserLoginRequestEntity.fromJson(Map<String, dynamic> json) =>
-      UserLoginRequestEntity(
+  factory UserLoginRequestEntity.fromJson(Map<String, dynamic> json) => UserLoginRequestEntity(
         email: json["email"],
         password: json["password"],
       );
@@ -54,17 +55,15 @@ class UserLoginResponseEntity {
     this.channels,
   });
 
-  factory UserLoginResponseEntity.fromJson(Map<String, dynamic> json) =>
-      UserLoginResponseEntity(
+  factory UserLoginResponseEntity.fromJson(Map<String, dynamic> json) => UserLoginResponseEntity(
         accessToken: json["access_token"],
         displayName: json["display_name"],
-        channels: List<String>.from(json["channels"].map((x) => x)),
+        // channels: List<String>.from(json["channels"].map((x) => x)),
       );
 
   Map<String, dynamic> toJson() => {
         "access_token": accessToken,
         "display_name": displayName,
-        "channels":
-            channels == null ? [] : List<dynamic>.from(channels!.map((x) => x)),
+        "channels": channels == null ? [] : List<dynamic>.from(channels!.map((x) => x)),
       };
 }

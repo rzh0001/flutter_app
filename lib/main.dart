@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ducafecat_news_getx/common/routes/app_pages.dart';
-import 'package:flutter_ducafecat_news_getx/common/services/global_config.dart';
-import 'package:flutter_ducafecat_news_getx/common/utils/utils.dart';
-import 'package:flutter_ducafecat_news_getx/global.dart';
+import 'package:flutter_app/common/routes/app_pages.dart';
+import 'package:flutter_app/common/services/global_config.dart';
+import 'package:flutter_app/common/utils/utils.dart';
+import 'package:flutter_app/global.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
